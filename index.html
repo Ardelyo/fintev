@@ -3,269 +3,235 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Fintev — Personal AI Finance</title>
-  <meta name="description" content="Fintev is a personal AI finance system that tracks your net worth, spending, accounts and goals — and answers money questions over your own data.">
-  <meta name="theme-color" content="#4a2bd2">
-  <meta property="og:title" content="Fintev — Personal AI Finance">
-  <meta property="og:description" content="Track wealth and assets, see what is safe to spend, and plan with an on-device AI.">
+  <title>Fintev — money that has a mood</title>
+  <meta name="description" content="Fintev is a calm, plain-language money app. Pip, a small character, reads your accounts, shows what is safe to spend and answers questions with live visuals.">
+  <meta name="theme-color" content="#F7F3EC">
+  <meta property="og:title" content="Fintev — money that has a mood">
+  <meta property="og:description" content="Calm money, in plain words. Meet Pip.">
   <meta property="og:type" content="website">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..600&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/figtree.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
   <link rel="stylesheet" href="assets/css/styles.css">
   <script type="module" src="assets/js/app.js"></script>
 </head>
-<body>
+<body data-mood="calm">
+  <div class="bg" aria-hidden="true"><i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i><i class="blob b4"></i></div>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <defs>
-      <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M15.5 2.5c.5 3.6 2.4 5.6 6 6.2-3.6.6-5.5 2.6-6 6.2-.5-3.6-2.4-5.6-6-6.2 3.6-.6 5.5-2.6 6-6.2Z"/><path d="M7 11.5c.35 2.5 1.7 3.9 4.2 4.3-2.5.4-3.85 1.8-4.2 4.3-.35-2.5-1.7-3.9-4.2-4.3 2.5-.4 3.85-1.8 4.2-4.3Z"/></symbol>
-      <symbol id="i-home" viewBox="0 0 24 24"><path d="M10.6 3.6a2.2 2.2 0 0 1 2.8 0l5.8 4.7c.5.4.8 1 .8 1.7V18a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-8c0-.7.3-1.3.8-1.7l5.8-4.7Z"/><rect x="9" y="15.2" width="6" height="1.8" rx=".9" fill="var(--icon-cut,#fff)"/></symbol>
-      <symbol id="i-chart" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M13 4H8a4 4 0 0 0-4 4v8a4 4 0 0 0 4 4h8a4 4 0 0 0 4-4v-5"/><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="m7.5 15 3-3.5 2.5 2 3.5-4.5"/><circle cx="19" cy="5" r="2.2" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
-      <symbol id="i-target" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/></g></symbol>
-      <symbol id="i-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></g></symbol>
-      <symbol id="i-sync" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4.5 9.5a11 11 0 0 1 15 0"/><path d="M7.4 12.6a6.8 6.8 0 0 1 9.2 0"/></g><circle cx="12" cy="16" r="1.5" fill="currentColor"/><g fill="currentColor"><circle cx="6" cy="19.5" r=".8"/><circle cx="9" cy="20.6" r=".8"/><circle cx="12" cy="21" r=".8"/><circle cx="15" cy="20.6" r=".8"/><circle cx="18" cy="19.5" r=".8"/></g></symbol>
-      <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7M9 7h8v8"/></symbol>
-      <symbol id="i-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></g></symbol>
-      <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m6.5 12.5 3.5 3.5 7.5-8"/></symbol>
-      <symbol id="i-chevron" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="m7 10 5 5 5-5"/></symbol>
-      <symbol id="i-sliders" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="4" y="5" width="16" height="6" rx="3"/><rect x="4" y="13" width="16" height="6" rx="3"/><circle cx="8" cy="8" r="1.4" fill="currentColor"/><circle cx="16" cy="16" r="1.4" fill="currentColor"/></g></symbol>
-      <symbol id="i-repeat" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11V9a3 3 0 0 1 3-3h11m-3-3 3 3-3 3"/><path d="M20 13v2a3 3 0 0 1-3 3H6m3 3-3-3 3-3"/></g></symbol>
-      <symbol id="i-close" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="m6 6 12 12M18 6 6 18"/></symbol>
+      <symbol id="i-home" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.2 12 4l7.5 6.2V18a2.5 2.5 0 0 1-2.5 2.5H7A2.5 2.5 0 0 1 4.5 18Z"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M9.5 20.5v-5a2.5 2.5 0 0 1 5 0v5"/></symbol>
+      <symbol id="i-money" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8.5A2.5 2.5 0 0 1 6.5 6H18a2 2 0 0 1 2 2v1.5"/><path d="M4 8.5V17a2.5 2.5 0 0 0 2.5 2.5H18a2 2 0 0 0 2-2V12a2 2 0 0 0-2-2H6.5A2.5 2.5 0 0 1 4 7.6"/><circle cx="16" cy="14.7" r="1.1" fill="currentColor"/></g></symbol>
+      <symbol id="i-goal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="8.5" width="12" height="12" rx="4.5"/><rect x="8.5" y="4" width="7" height="4.5" rx="1.8"/><path d="M6.3 15.2c1.8-1.3 3.4 1.3 5.7 0s3.9 1.3 6 0"/></g></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></g></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+      <symbol id="i-up" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7M9 7h8v8"/></symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9"><rect x="5" y="10.5" width="14" height="10" rx="3"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5" stroke-linecap="round"/></g></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="m6 6 12 12M18 6 6 18"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M12 5v14M5 12h14"/></symbol>
+      <symbol id="i-refresh" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 0 1-14 5.3M4 12a8 8 0 0 1 14-5.3"/><path d="M18.5 3v4h-4M5.5 21v-4h4"/></g></symbol>
     </defs>
   </svg>
 
-  <div class="app">
-    <header class="topbar">
-      <div class="who">
-        <span class="avatar" aria-hidden="true">J</span>
-        <p class="greeting" id="greeting">Good morning, John</p>
-      </div>
+  <header class="top">
+    <a class="brand" href="#home" aria-label="Fintev, home">
+      <span class="brand-pip" id="brand-pip"></span>
+      <span class="brand-word">fintev</span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <span class="nav-ind" aria-hidden="true"></span>
+      <a href="#home" data-nav="home"><svg><use href="#i-home"/></svg><span>Today</span></a>
+      <a href="#ask" data-nav="ask"><span class="nav-pip" id="nav-pip"></span><span>Ask Pip</span></a>
+      <a href="#money" data-nav="money"><svg><use href="#i-money"/></svg><span>Money</span></a>
+      <a href="#goals" data-nav="goals"><svg><use href="#i-goal"/></svg><span>Goals</span></a>
+    </nav>
+
+    <div class="top-r">
       <p class="today" id="today"></p>
-      <div class="topbar-actions">
-        <button class="icon-btn glass sync-btn" type="button" aria-label="Sync accounts"><svg><use href="#i-sync"/></svg></button>
-        <button class="icon-btn glass search-btn" type="button" aria-label="Search"><svg><use href="#i-search"/></svg></button>
+      <button class="icon-btn" type="button" id="search-btn" aria-label="Search (Ctrl K)"><svg><use href="#i-search"/></svg></button>
+    </div>
+  </header>
+
+  <main id="main" class="views" tabindex="-1">
+
+    <!-- ============ TODAY ============ -->
+    <section class="view v-home" data-view="home" aria-labelledby="h-home">
+      <div class="hero">
+        <div class="hero-text">
+          <p class="hello" id="hello">Good morning, John</p>
+          <h1 class="mood-line" id="h-home">Money feels <em>calm</em> today.</h1>
+          <p class="mood-sub" id="mood-sub"></p>
+          <form class="ask-mini" id="home-ask" autocomplete="off">
+            <label class="sr-only" for="home-q">Ask Pip about your money</label>
+            <input id="home-q" type="text" placeholder="Ask Pip: can I buy a $900 laptop?" enterkeyhint="send">
+            <button type="submit" aria-label="Ask Pip"><svg><use href="#i-arrow"/></svg></button>
+          </form>
+          <div class="hero-chips" id="hero-chips">
+            <button type="button" data-q="Can I afford Lisbon in March?">Lisbon in March?</button>
+            <button type="button" data-q="Where did my paycheck go?">Where did my paycheck go?</button>
+            <button type="button" data-q="What can I cancel?">What can I cancel?</button>
+          </div>
+        </div>
+        <div class="hero-pip">
+          <div class="say" id="say" aria-live="polite"></div>
+          <div class="pip-big" id="hero-pip"></div>
+        </div>
       </div>
-    </header>
 
-    <main id="main" class="views" tabindex="-1">
-      <!-- HOME -->
-      <section class="view view-home" data-view="home" aria-labelledby="h-home">
-        <h1 class="sr-only" id="h-home">Overview</h1>
-
-        <article class="card card-networth" aria-labelledby="nw-title">
-          <div class="card-head">
-            <div>
-              <h2 class="card-title" id="nw-title">Net worth</h2>
-              <p class="card-sub" id="nw-sub">3 accounts · synced 2 min ago</p>
+      <div class="bento">
+        <article class="card c-nw" style="--tint:var(--lilac)" aria-labelledby="nw-t">
+          <header class="card-h">
+            <p class="eyebrow-s" id="nw-t">You’re worth</p>
+            <div class="seg" role="radiogroup" aria-label="Chart range" id="nw-seg">
+              <button type="button" role="radio" aria-checked="false" data-r="3M">3M</button>
+              <button type="button" role="radio" aria-checked="true" data-r="6M">6M</button>
+              <button type="button" role="radio" aria-checked="false" data-r="1Y">1Y</button>
             </div>
-            <div class="segmented" role="radiogroup" aria-label="Change period">
-              <button type="button" role="radio" aria-checked="false" data-range="1W">1W</button>
-              <button type="button" role="radio" aria-checked="true" data-range="1M">1M</button>
-              <button type="button" role="radio" aria-checked="false" data-range="1Y">1Y</button>
-            </div>
-          </div>
-          <div class="nw-amount">
-            <span class="dm" id="nw-value"></span><span class="dm dm-cents" id="nw-cents"></span>
-          </div>
-          <p class="nw-change"><span class="badge-up" id="nw-pct">↗ 1.4%</span> <span id="nw-delta">+$3,412 this month</span></p>
-
-          <div class="sts">
-            <div class="sts-head">
-              <div>
-                <p class="label">Safe to spend</p>
-                <p class="dm dm-md" id="sts-value"></p>
-              </div>
-              <p class="label">Next 30 days</p>
-            </div>
-            <div class="wave" id="wave" role="img" aria-label="Safe-to-spend forecast for the next 30 days"></div>
-          </div>
+          </header>
+          <p class="num-xl" id="nw-num" aria-label=""></p>
+          <p class="chg"><span class="chip-up" id="nw-pct"></span><span id="nw-delta"></span></p>
+          <div class="chart-host" id="nw-chart"></div>
+          <p class="foot-s">3 accounts · synced 2 min ago</p>
         </article>
 
-        <article class="card card-spending" aria-labelledby="sp-title">
-          <div class="card-head">
-            <div>
-              <h2 class="card-title" id="sp-title">Spending</h2>
-              <p class="card-sub" id="sp-month">November 2026</p>
-            </div>
-            <a class="round-btn" href="#insights" aria-label="Open spending insights"><svg><use href="#i-arrow"/></svg></a>
-          </div>
-          <div class="gauge">
-            <svg class="gauge-svg" id="gauge" viewBox="0 0 320 172" aria-hidden="true"></svg>
-            <div class="gauge-center">
-              <p class="dm dm-md" id="sp-value"></p>
-              <p class="gauge-sub" id="sp-sub">spent · <strong>$980 left</strong></p>
-            </div>
-          </div>
-          <ul class="legend" id="sp-legend"></ul>
+        <article class="card c-sts" style="--tint:var(--mint)" aria-labelledby="sts-t">
+          <header class="card-h">
+            <p class="eyebrow-s" id="sts-t">Free to spend</p>
+            <span class="chip-soft">Next 30 days</span>
+          </header>
+          <p class="num-xl" id="sts-num"></p>
+          <p class="muted">After bills, savings and a $1,000 buffer. Your typical day costs about <b>$52</b>.</p>
+          <div class="chart-host" id="run-chart"></div>
+          <ul class="coming" id="coming" aria-label="Coming up"></ul>
         </article>
 
-        <article class="card card-accounts" aria-labelledby="ac-title">
-          <div class="card-head">
-            <h2 class="card-title" id="ac-title">Accounts</h2>
-            <a class="link-sub" href="#insights">See all</a>
-          </div>
+        <article class="card c-sp" style="--tint:var(--peach)" aria-labelledby="sp-t">
+          <header class="card-h">
+            <p class="eyebrow-s" id="sp-t">You’ve spent</p>
+            <a class="round-btn" href="#money" aria-label="Open spending details"><svg><use href="#i-up"/></svg></a>
+          </header>
+          <p class="num-xl" id="sp-num"></p>
+          <p class="muted" id="sp-sub"></p>
+          <div class="pace" aria-hidden="true"><div class="meter"><span id="pace-fill"></span><i id="pace-tick"><em>today</em></i></div></div>
+          <div class="bubbles" id="bubbles"></div>
+          <p class="bub-cap" id="bub-cap" aria-live="polite">Tap a blob to see its budget.</p>
+        </article>
+
+        <article class="card c-acc" style="--tint:var(--sky)" aria-labelledby="ac-t">
+          <header class="card-h">
+            <p class="eyebrow-s" id="ac-t">Where it lives</p>
+            <a class="link-s" href="#money">See all</a>
+          </header>
           <div class="alloc" id="alloc" role="img"></div>
           <ul class="acct-list" id="acct-list"></ul>
+          <div class="tipbox"><span class="tip-ic">✦</span><p><b>79% of what you own is in one index fund.</b> That’s normal for long-term money — just worth knowing.</p><button class="btn btn-ink btn-sm" type="button" data-q="Where did my paycheck go?">Ask Pip</button></div>
         </article>
-      </section>
 
-      <!-- ASK -->
-      <section class="view view-ask" data-view="ask" aria-labelledby="h-ask" hidden>
-        <div class="chat">
-          <div class="chat-head">
-            <h1 id="h-ask">Ask Fintev</h1>
-            <p><svg class="i-xs"><use href="#i-lock"/></svg> Private · on-device</p>
+        <article class="card c-goals" style="--tint:var(--butter)" aria-labelledby="gl-t">
+          <header class="card-h">
+            <p class="eyebrow-s" id="gl-t">Saving toward</p>
+            <a class="link-s" href="#goals">All goals</a>
+          </header>
+          <ul class="jar-row" id="jar-row"></ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ ASK ============ -->
+    <section class="view v-ask" data-view="ask" aria-labelledby="h-ask" hidden>
+      <div class="ask-wrap">
+        <div class="ask-head">
+          <div>
+            <h1 id="h-ask">Ask <em>Pip</em></h1>
+            <p><svg class="i-xs"><use href="#i-lock"/></svg> Private · answers come only from your own data</p>
           </div>
-          <div class="chat-log" id="chat-log" aria-live="polite">
-            <div class="msg msg-user">Can I afford Lisbon in March without touching my emergency fund?</div>
-            <div class="msg-ai" id="first-answer">
-              <button class="ai-who" type="button" aria-expanded="true" aria-controls="steps">
-                <span class="ai-avatar"><svg><use href="#i-sparkle"/></svg></span>
-                <span><strong>Fintev</strong><small>Reasoned over your data · 4s <svg class="i-xs chev"><use href="#i-chevron"/></svg></small></span>
-              </button>
-              <ol class="steps" id="steps">
-                <li data-step="0"><span class="step-ico"></span><span>Read 3 linked accounts</span><b>$248.6k</b></li>
-                <li data-step="1"><span class="step-ico"></span><span>Scanned 214 transactions</span><b>Oct – Mar</b></li>
-                <li data-step="2"><span class="step-ico"></span><span>Found 2 unused subscriptions</span><b>$41/mo</b></li>
-                <li data-step="3"><span class="step-ico"></span><span>Simulated 3 savings plans</span><b>Best $180/mo</b></li>
-              </ol>
-              <div class="answer" id="answer">
-                <p class="answer-lead">Yes. Set aside <span id="ans-amt">$180</span> a month <sup class="fn" tabindex="0" title="Auto-transfer from Everyday checking on the 15th">1</sup> and you’ll reach $2,840 <span id="ans-when">by February</span>. <sup class="fn" tabindex="0" title="Projection assumes no change to income">2</sup></p>
-                <p class="answer-note">Your emergency fund stays at 6.2 months of expenses. Part of the $180 comes from two subscriptions you rarely open. <sup class="fn" tabindex="0" title="Streamly ($15.99) and CloudBox Pro ($24.99)">3</sup></p>
-              </div>
-            </div>
-          </div>
-          <form class="ask-bar" id="ask-form" autocomplete="off">
-            <span class="ask-orb" aria-hidden="true"></span>
-            <label class="sr-only" for="ask-input">Ask Fintev anything</label>
-            <input id="ask-input" type="text" placeholder="Ask Fintev anything…" enterkeyhint="send">
-            <button class="send-btn" type="submit" aria-label="Send"><svg><use href="#i-arrow"/></svg></button>
-          </form>
-          <div class="chips" id="chips">
-            <button type="button">How much did I spend on food?</button>
-            <button type="button">What’s my net worth?</button>
-            <button type="button">Any subscriptions to cancel?</button>
-          </div>
+          <button class="btn btn-ghost btn-sm" type="button" id="new-chat"><svg class="i-xs"><use href="#i-refresh"/></svg> New chat</button>
         </div>
+        <div class="chat-log" id="chat-log"></div>
+        <form class="ask-bar" id="ask-form" autocomplete="off">
+          <label class="sr-only" for="ask-input">Ask Pip anything</label>
+          <input id="ask-input" type="text" placeholder="Ask Pip anything…" enterkeyhint="send">
+          <button class="send" id="ask-send" type="submit" aria-label="Send"><svg><use href="#i-arrow"/></svg></button>
+        </form>
+      </div>
+    </section>
 
-        <div class="scenario">
-          <div class="scenario-head">
-            <p>Scenario</p>
-            <h2>Lisbon, March 14</h2>
-          </div>
-          <div class="scenario-card">
-            <div class="ring-wrap">
-              <svg class="ring" id="ring" viewBox="0 0 260 260" aria-hidden="true"></svg>
-              <div class="ring-center">
-                <p>Trip budget</p>
-                <p class="dm dm-md" id="trip-budget"></p>
-                <p class="ring-sub">$2,180 saved · 77%</p>
-              </div>
+    <!-- ============ MONEY ============ -->
+    <section class="view v-money" data-view="money" aria-labelledby="h-money" hidden>
+      <div class="page-h">
+        <h1 id="h-money">Money, <em>explained</em></h1>
+        <p>Where it is, where it goes, and what to keep an eye on — in plain words.</p>
+      </div>
+      <div class="bento bento-money">
+        <article class="card m-nw" style="--tint:var(--lilac)" aria-labelledby="mn-t">
+          <header class="card-h">
+            <div><p class="eyebrow-s" id="mn-t">Where your wealth sits</p><p class="muted" id="mn-sub"></p></div>
+            <div class="seg" role="radiogroup" aria-label="Chart range" id="mn-seg">
+              <button type="button" role="radio" aria-checked="true" data-r="1Y">1Y</button>
+              <button type="button" role="radio" aria-checked="false" data-r="6M">6M</button>
             </div>
-            <p class="plan-status" id="plan-status">On track · reach by Feb 15</p>
-            <div class="setaside">
-              <div class="setaside-head">
-                <label for="setaside">Monthly set-aside</label>
-                <span class="dm dm-sm" id="setaside-value"></span>
-              </div>
-              <div class="ticks-wrap">
-                <div class="ticks" id="ticks" aria-hidden="true"></div>
-                <input type="range" id="setaside" min="0" max="600" step="10" value="180" aria-describedby="plan-status">
-              </div>
-              <div class="tick-labels" aria-hidden="true"><span>$0</span><span>$200</span><span>$400</span><span>$600</span></div>
-            </div>
-          </div>
-          <div class="scenario-actions">
-            <button class="icon-btn glass" type="button" id="btn-adjust" aria-label="Reset to recommended amount"><svg><use href="#i-sliders"/></svg></button>
-            <button class="approve-btn" type="button" id="btn-approve">Approve plan</button>
-            <button class="icon-btn glass" type="button" id="btn-repeat" aria-label="Compare another scenario"><svg><use href="#i-repeat"/></svg></button>
-          </div>
-        </div>
-      </section>
+          </header>
+          <div class="chart-host" id="m-chart"></div>
+          <ul class="legend" id="m-legend"></ul>
+        </article>
 
-      <!-- INSIGHTS -->
-      <section class="view view-insights" data-view="insights" aria-labelledby="h-ins" hidden>
-        <h1 class="page-title" id="h-ins">Insights</h1>
-        <article class="card card-flow" aria-labelledby="cf-title">
-          <div class="card-head">
-            <div>
-              <h2 class="card-title" id="cf-title">Cash flow</h2>
-              <p class="card-sub">Last 6 months</p>
-            </div>
-            <ul class="key">
-              <li><i style="background:var(--ink)"></i>Income</li>
-              <li><i style="background:var(--cat-1)"></i>Spending</li>
-            </ul>
-          </div>
-          <div class="flow" id="flow"></div>
-          <p class="flow-foot">Average saved <strong id="flow-avg"></strong> a month</p>
+        <article class="card m-budget" style="--tint:var(--peach)" aria-labelledby="mb-t">
+          <header class="card-h"><div><p class="eyebrow-s" id="mb-t">Budget check</p><p class="muted">The line shows how far through October we are.</p></div></header>
+          <ul class="bud-list" id="bud-list"></ul>
         </article>
-        <article class="card card-cats" aria-labelledby="ct-title">
-          <div class="card-head">
-            <div>
-              <h2 class="card-title" id="ct-title">Where it went</h2>
-              <p class="card-sub" id="ct-month">November</p>
-            </div>
-          </div>
-          <ul class="cat-list" id="cat-list"></ul>
+
+        <article class="card m-flow" style="--tint:#fff" aria-labelledby="mf-t">
+          <header class="card-h"><div><p class="eyebrow-s" id="mf-t">Where this month’s paycheck goes</p><p class="muted">Follow a ribbon from income to where it lands. Hover a block to isolate it.</p></div></header>
+          <div class="chart-host" id="m-flow"></div>
         </article>
-        <article class="card card-accts-all" aria-labelledby="aa-title">
-          <div class="card-head"><h2 class="card-title" id="aa-title">All accounts</h2></div>
-          <ul class="acct-list" id="acct-list-2"></ul>
+
+        <article class="card m-subs" style="--tint:var(--butter)" aria-labelledby="ms-t">
+          <header class="card-h"><div><p class="eyebrow-s" id="ms-t">Recurring</p><p class="muted" id="ms-sub"></p></div></header>
+          <ul class="sub-list" id="sub-list"></ul>
+          <button class="btn btn-ink" type="button" data-q="What can I cancel?" id="sub-ask">Review with Pip</button>
         </article>
-        <article class="card card-tx" aria-labelledby="tx-title">
-          <div class="card-head">
-            <div>
-              <h2 class="card-title" id="tx-title">Recent activity</h2>
-              <p class="card-sub">Everyday checking</p>
-            </div>
-          </div>
+
+        <article class="card m-act" style="--tint:var(--sky)" aria-labelledby="ma-t">
+          <header class="card-h"><div><p class="eyebrow-s" id="ma-t">Recent activity</p><p class="muted">Everyday checking</p></div></header>
           <ul class="tx-list" id="tx-list"></ul>
         </article>
-      </section>
-
-      <!-- GOALS -->
-      <section class="view view-goals" data-view="goals" aria-labelledby="h-goals" hidden>
-        <h1 class="page-title" id="h-goals">Goals</h1>
-        <div class="goal-grid" id="goal-grid"></div>
-      </section>
-    </main>
-
-    <nav class="rail" aria-label="Primary">
-      <div class="rail-top">
-        <button class="icon-btn glass sync-btn" type="button" aria-label="Sync accounts"><svg><use href="#i-sync"/></svg></button>
-        <button class="icon-btn glass search-btn" type="button" aria-label="Search (Ctrl K)"><svg><use href="#i-search"/></svg></button>
       </div>
-      <div class="rail-bottom">
-        <a class="ai-btn" href="#ask" data-nav="ask" aria-label="Ask Fintev"><svg><use href="#i-sparkle"/></svg></a>
-        <div class="pill">
-          <span class="pill-indicator" aria-hidden="true"></span>
-          <a href="#home" data-nav="home" aria-label="Overview"><svg><use href="#i-home"/></svg></a>
-          <a href="#insights" data-nav="insights" aria-label="Insights"><svg><use href="#i-chart"/></svg></a>
-          <a href="#goals" data-nav="goals" aria-label="Goals"><svg><use href="#i-target"/></svg></a>
+    </section>
+
+    <!-- ============ GOALS ============ -->
+    <section class="view v-goals" data-view="goals" aria-labelledby="h-goals" hidden>
+      <div class="page-h with-pip">
+        <div>
+          <h1 id="h-goals">Goals, <em>filling up</em></h1>
+          <p id="goals-sub"></p>
         </div>
+        <div class="pip-sm" id="goals-pip"></div>
       </div>
-    </nav>
-  </div>
+      <div class="goal-grid" id="goal-grid"></div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>Fintev is a design demo — every number is made up. <a href="brand.html">Brand sheet →</a></p>
+  </footer>
 
   <div class="search" id="search" hidden>
     <div class="search-backdrop" data-close></div>
     <div class="search-panel" role="dialog" aria-modal="true" aria-label="Search">
       <div class="search-field">
         <svg><use href="#i-search"/></svg>
-        <input id="search-input" type="search" placeholder="Search accounts, activity, goals…" aria-controls="search-results">
+        <input id="search-input" type="search" placeholder="Search, or ask Pip anything…" autocomplete="off">
         <button class="icon-btn" type="button" data-close aria-label="Close search"><svg><use href="#i-close"/></svg></button>
       </div>
-      <ul class="search-results" id="search-results" role="listbox"></ul>
+      <ul class="search-results" id="search-results"></ul>
     </div>
   </div>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-
-  <noscript><p class="noscript">Fintev needs JavaScript to display your dashboard.</p></noscript>
+  <noscript><p class="noscript">Fintev needs JavaScript to draw your dashboard.</p></noscript>
 </body>
 </html>
