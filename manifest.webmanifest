@@ -1,0 +1,10 @@
+{
+  "name": "Fintev — Personal AI Finance",
+  "short_name": "Fintev",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#4a2bd2",
+  "theme_color": "#4a2bd2",
+  "icons": [{ "src": "assets/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}
