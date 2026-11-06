@@ -1,54 +1,63 @@
-# Fintev
+# Fintev — money that has a mood
 
-A personal AI finance dashboard — net worth, spending, accounts, goals, and an on-device style assistant that plans with your own data. Static HTML/CSS/JS with no build step, ready for GitHub Pages.
+A calm, plain-language money app. **Pip**, a small character, reads your accounts, shows what's safe to spend, and answers questions with live visuals instead of walls of text. Static HTML/CSS/JS — no build step — ready for GitHub Pages.
 
-## Screens
+## What makes it its own
 
-| Route | What's there |
+- **Shapes → Blur → Design.** Screens start as soft blurred shapes; pastel colour-block cards sit on top. The whole backdrop shifts with your money's mood.
+- **Pip, the mascot.** Its face is a handful of numbers (eye height, mouth curve, brow tilt) that tween between six moods: calm, happy, joy, curious, worried, thinking. Mood is driven by real data — spending pace vs. the month, goals filling up, an approved plan. Pip's eyes follow your pointer.
+- **An assistant that answers with visuals.** Ask Pip and get a plain sentence plus an interactive card:
+  | Ask | You get |
+  | --- | --- |
+  | "Can I afford Lisbon in March?" | Savings staircase with a live slider, verdict and funding sources; approve to celebrate |
+  | "Can I buy a $900 laptop?" (any amount) | Safe-to-spend forecast with and without the purchase, lowest point, recovery date, and a verdict |
+  | "Where did my paycheck go?" | Sankey: income → needs / wants / saved / left over → categories |
+  | "What can I cancel?" | Subscriptions with toggles and yearly savings |
+  | "How much did I spend on food?" (or any category) | Budget meter, weekly bars, recent purchases, vs. last month |
+  | "What's my net worth?", "How am I doing?", "What are my goals?" | Scrubbable chart, pace check, goal jars |
+- **Finance made understandable.** Card titles are sentence fragments ("You're worth", "Free to spend"). Bills are shown as *already set aside* so they never dent safe-to-spend. Spending is blobs sized by amount; goals are jars that fill up and change expression.
+
+## Pages
+
+| Route | |
 | --- | --- |
-| `#home` | Net worth in dot-matrix numerals with 1W/1M/1Y change, a 30-day "safe to spend" forecast (hover/tap to scrub), a dotted spending gauge by category, and account allocation. |
-| `#ask` | Ask Fintev: a reasoning trace, an answer with sources, and a live trip scenario. Drag the monthly set-aside to see the savings ring, status and answer update; approve the plan. |
-| `#insights` | Dot-column cash flow, category breakdown, all accounts and recent activity. |
-| `#goals` | Goals with dotted progress rings; add money to any goal. |
+| `#home` | Mood headline, ask bar, net worth, free-to-spend runway, spending blobs, accounts, goal jars |
+| `#ask` | Ask Pip |
+| `#money` | Stacked wealth chart, budget check, paycheck flow, recurring, activity |
+| `#goals` | Goal jars; add $100 to any goal |
+| `brand.html` | Brand sheet: Shapes → Blur → Design, Pip's moods, colour, type, parts, voice |
 
-Search with the magnifier, <kbd>Ctrl</kbd>/<kbd>⌘</kbd> + <kbd>K</kbd> or <kbd>/</kbd>.
+Search with the magnifier, <kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>K</kbd> or <kbd>/</kbd> — or just type a question.
 
-## Responsive behaviour
+## Responsive
 
-- **Desktop (> 1100px):** two-column dashboard with a vertical navigation rail on the right.
-- **Tablet (761–1100px):** net worth spans the full width; spending and accounts sit side by side.
-- **Mobile (≤ 760px):** single column, compact header with sync/search, floating bottom navigation that respects safe-area insets.
-
-Respects `prefers-reduced-motion`; all charts have text alternatives and the controls are keyboard reachable.
+Desktop: floating pill nav and a bento grid. Tablet: cards reflow. Mobile: single column, bottom tab bar (safe-area aware), horizontally scrolling goal jars. Respects `prefers-reduced-motion`; charts have text alternatives; everything is keyboard-reachable.
 
 ## Run locally
 
-ES modules need a web server (not `file://`):
+ES modules need a server (not `file://`):
 
 ```sh
-python3 -m http.server 8000
-# open http://localhost:8000
+python3 -m http.server 8000   # open http://localhost:8000
 ```
 
 ## Deploy to GitHub Pages
 
-Option A — GitHub Actions (included): merge to `main`, then in **Settings → Pages** set **Source** to **GitHub Actions**. The workflow in `.github/workflows/pages.yml` publishes the site on every push to `main`.
-
-Option B — branch deploy: in **Settings → Pages** choose **Deploy from a branch**, branch `main`, folder `/ (root)`.
-
-All paths are relative, so the site works at `https://<user>.github.io/fintev/`.
+Merge to `main`, then in **Settings → Pages** set **Source** to **GitHub Actions** — `.github/workflows/pages.yml` publishes on every push to `main`. (Or choose *Deploy from a branch → main → / (root)*.) All paths are relative, and fonts are self-hosted, so it works at `https://<user>.github.io/fintev/`.
 
 ## Structure
 
 ```
-index.html
-manifest.webmanifest
+index.html · brand.html · manifest.webmanifest
 assets/
-  css/styles.css
-  js/app.js        # rendering, interactions, router
-  js/dotmatrix.js  # dotted numeral renderer (SVG)
-  js/data.js       # demo data
-  favicon.svg
+  css/styles.css, brand.css
+  fonts/        Fraunces, Figtree, Caveat (self-hosted, SIL OFL)
+  js/app.js       views, router, search
+  js/ask.js       the assistant and its visual cards
+  js/mascot.js    Pip and mood tweening
+  js/charts.js    area, runway, bubbles, sankey, jars (hand-drawn SVG)
+  js/shapes.js    blob + smooth-line helpers
+  js/data.js      demo data, forecast logic, mood rules
 ```
 
-All figures are demo data.
+All figures are demo data anchored to Monday, 26 Oct 2026.

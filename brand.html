@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Fintev brand sheet — Pip, shapes and mood</title>
+  <meta name="description" content="The Fintev brand sheet: Shapes → Blur → Design, the mascot Pip and its moods, colour, type, components and voice.">
+  <meta name="theme-color" content="#F7F3EC">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/brand.css">
+  <script type="module" src="assets/js/brand.js"></script>
+</head>
+<body data-mood="calm" class="brand-page">
+  <div class="bg" aria-hidden="true"><i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i><i class="blob b4"></i></div>
+
+  <header class="bhead">
+    <a class="brand" href="./" aria-label="Back to the Fintev app"><span class="brand-pip" id="brand-pip"></span><span class="brand-word">fintev</span></a>
+    <nav class="bnav" aria-label="Sections"><a href="#shapes">Shapes</a><a href="#pip">Pip</a><a href="#colour">Colour</a><a href="#type">Type</a><a href="#parts">Parts</a><a href="#voice">Voice</a></nav>
+    <a class="btn btn-ink btn-sm" href="./">Open the app</a>
+  </header>
+
+  <main class="bmain">
+    <section class="bhero">
+      <p class="hand">brand sheet · v1</p>
+      <h1>Money that has a <em>mood</em>.</h1>
+      <p class="lede">Fintev explains money in plain words, and shows it with soft shapes. A small character, Pip, reads the room — so a number never has to feel like a verdict.</p>
+      <div class="bhero-pip"><div id="hero-pip"></div></div>
+    </section>
+
+    <!-- Shapes → Blur → Design -->
+    <section id="shapes" class="bsec">
+      <header class="bsec-h"><p class="eyebrow">01 · Language</p><h2>Shapes → Blur → <em>Design</em></h2><p>Every screen starts as a handful of flat, friendly shapes. We blur them until they become light, then lay clear, quiet interface on top.</p></header>
+      <div class="process">
+        <figure class="phone"><div class="screen"><div class="shapes"><i class="s1"></i><i class="s2"></i><i class="s3"></i><i class="s4"></i></div></div><figcaption>Shapes</figcaption></figure>
+        <svg class="arrow" viewBox="0 0 120 60" aria-hidden="true"><path d="M6 44C34 6 78 4 108 30" /><path d="m96 18 14 13-19 5" /></svg>
+        <figure class="phone blur"><div class="screen"><div class="shapes"><i class="s1"></i><i class="s2"></i><i class="s3"></i><i class="s4"></i></div></div><figcaption>Blur</figcaption></figure>
+        <svg class="arrow" viewBox="0 0 120 60" aria-hidden="true"><path d="M6 44C34 6 78 4 108 30" /><path d="m96 18 14 13-19 5" /></svg>
+        <figure class="phone final"><div class="screen"><div class="shapes"><i class="s1"></i><i class="s2"></i><i class="s3"></i><i class="s4"></i></div>
+          <div class="mini"><div class="mini-pip" id="mini-pip"></div><p class="mini-t">Money feels <em>calm</em> today.</p><div class="mini-card"><small>Free to spend</small><b>$1,240</b></div><div class="mini-card tint"><small>You’ve spent</small><b>$4,220</b></div></div></div><figcaption>Design</figcaption></figure>
+      </div>
+      <ul class="rules">
+        <li><b>Round, never sharp.</b> Cards sit at 34px, buttons are pills, even charts end in soft caps.</li>
+        <li><b>Colour is a mood, not a code.</b> The backdrop shifts gently as your money does.</li>
+        <li><b>One serif voice.</b> Fraunces speaks in italics when it’s being human.</li>
+      </ul>
+    </section>
+
+    <!-- Pip -->
+    <section id="pip" class="bsec">
+      <header class="bsec-h"><p class="eyebrow">02 · Character</p><h2>Meet <em>Pip</em></h2><p>Pip is a drop of money that grew a face. Its expression is a handful of numbers — eye height, mouth curve, brow tilt — that tween smoothly between moods. Move your pointer: Pip watches.</p></header>
+      <div class="moods" id="moods"></div>
+      <p class="hint hand">drive the whole app’s mood ↓</p>
+      <div class="mood-switch" role="radiogroup" aria-label="Preview app mood" id="mood-switch">
+        <button type="button" role="radio" aria-checked="true" data-m="calm">Calm</button>
+        <button type="button" role="radio" aria-checked="false" data-m="happy">Bright</button>
+        <button type="button" role="radio" aria-checked="false" data-m="worried">Gentle</button>
+        <button type="button" role="radio" aria-checked="false" data-m="joy">Win</button>
+      </div>
+    </section>
+
+    <!-- Colour -->
+    <section id="colour" class="bsec">
+      <header class="bsec-h"><p class="eyebrow">03 · Colour</p><h2>Pastel blocks, <em>ink</em> for meaning</h2><p>Soft pastels carry feeling. Deep ink carries information. Tap a swatch to copy it.</p></header>
+      <div class="swatches" id="swatches"></div>
+      <div class="mood-pal" id="mood-pal"></div>
+    </section>
+
+    <!-- Type -->
+    <section id="type" class="bsec">
+      <header class="bsec-h"><p class="eyebrow">04 · Type</p><h2>A serif that <em>talks</em></h2><p>Fraunces — soft optical size — for numbers and headlines. Figtree for everything you need to read quickly.</p></header>
+      <div class="type-grid">
+        <article class="card" style="--tint:var(--lilac)"><p class="eyebrow-s">Fraunces · numbers</p><p class="spec-num">$248,610<span>.41</span></p><p class="muted">Weight 400, SOFT 100, tight tracking. Cents shrink and fade.</p></article>
+        <article class="card" style="--tint:var(--mint)"><p class="eyebrow-s">Fraunces italic · feelings</p><p class="spec-it">You’re worth</p><p class="spec-it sm">Free to spend · Where it lives</p><p class="muted">Card labels are sentence fragments, spoken like a person.</p></article>
+        <article class="card" style="--tint:var(--butter)"><p class="eyebrow-s">Figtree · everything else</p><p class="spec-ui">Rent is already set aside.</p><p class="spec-ui sub">Bills, labels, buttons and tables — 14 to 17px, 500–700.</p><p class="hand big">Caveat is only for margin notes ✎</p></article>
+      </div>
+    </section>
+
+    <!-- Parts -->
+    <section id="parts" class="bsec">
+      <header class="bsec-h"><p class="eyebrow">05 · Parts</p><h2>Finance, made <em>visual</em></h2><p>Each number has one picture that explains it.</p></header>
+      <div class="parts">
+        <article class="card" style="--tint:var(--peach)"><p class="eyebrow-s">Blobs → categories</p><div class="bubbles" id="p-bubbles"></div><p class="muted">Size is how much you spent. A dashed ring means over budget.</p></article>
+        <article class="card" style="--tint:var(--butter)"><p class="eyebrow-s">Jars → goals</p><ul class="jars-demo" id="p-jars"></ul><p class="muted">Goals fill like a jar, and their face changes as they do.</p></article>
+        <article class="card" style="--tint:var(--mint)"><p class="eyebrow-s">Runway → safe to spend</p><div class="chart-host" id="p-run"></div><p class="muted">Bills are already set aside, so they never dent the line.</p></article>
+        <article class="card" style="--tint:#fff"><p class="eyebrow-s">Controls</p>
+          <div class="ctl"><button class="btn btn-ink" type="button">Approve plan</button><button class="btn btn-ghost" type="button">Try $300</button></div>
+          <div class="ctl"><span class="verdict ok">On track</span><span class="verdict tight">Yes, but tight</span><span class="verdict warn">Not yet</span></div>
+          <div class="ctl"><div class="seg"><button type="button" role="radio" aria-checked="false">3M</button><button type="button" role="radio" aria-checked="true">6M</button><button type="button" role="radio" aria-checked="false">1Y</button></div><span class="chip-up"><svg><use href="#i-up"/></svg>8.9%</span></div>
+          <p class="muted">Ink pills act. Pastel chips tell.</p></article>
+      </div>
+    </section>
+
+    <!-- Voice -->
+    <section id="voice" class="bsec">
+      <header class="bsec-h"><p class="eyebrow">06 · Voice</p><h2>Say it like a <em>friend</em></h2><p>Short, plain and warm. Never alarmist, never cute about debt.</p></header>
+      <div class="voice">
+        <div class="v-say"><p class="eyebrow">Say</p><ul><li>“You’re worth $248,610.”</li><li>“Rent is already set aside.”</li><li>“Not yet — wait until Nov 13.”</li><li>“Shopping is $40 over.”</li></ul></div>
+        <div class="v-not"><p class="eyebrow">Not</p><ul><li>“Net worth: $248,610.00 USD”</li><li>“Liabilities scheduled.”</li><li>“Purchase denied.”</li><li>“WARNING: budget exceeded!”</li></ul></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot"><p>Fintev brand sheet · every number is made up. <a href="./">← Back to the app</a></p></footer>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-up" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7M9 7h8v8"/></symbol></defs></svg>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
